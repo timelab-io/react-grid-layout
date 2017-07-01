@@ -1,6 +1,6 @@
 {
-  "name": "react-grid-layout",
-  "version": "0.14.6",
+  "name": "@timelab/react-grid-layout",
+  "version": "0.14.6-with-data-grid-fix",
   "description": "A draggable and resizable grid layout with responsive breakpoints, for React.",
   "main": "index.js",
   "scripts": {
@@ -81,6 +81,5 @@
     "registry": "https://registry.npmjs.org"
   },
   "pre-commit": [
-    "lint"
   ]
 }
