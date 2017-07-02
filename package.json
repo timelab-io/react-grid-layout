@@ -27,7 +27,6 @@
     "responsive"
   ],
   "author": "Samuel Reed <samuel.trace.reed@gmail.com> (http://strml.net/)",
-  "contributors": [{"name":"Anton Tokmakov", "email": "calmburst@gmail.com"}],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/STRML/react-grid-layout/issues"
