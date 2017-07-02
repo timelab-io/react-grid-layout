@@ -92,6 +92,7 @@ export default class ReactGridLayout extends React.Component {
     // Flags
     //
     isDraggable: PropTypes.bool,
+    isStateless: PropTypes.bool,
     isResizable: PropTypes.bool,
     // Use CSS transforms instead of top/left
     useCSSTransforms: PropTypes.bool,
@@ -145,6 +146,7 @@ export default class ReactGridLayout extends React.Component {
     layout: [],
     margin: [10, 10],
     isDraggable: true,
+    isStateless: false,
     isResizable: true,
     useCSSTransforms: true,
     verticalCompact: true,
@@ -292,14 +294,16 @@ export default class ReactGridLayout extends React.Component {
     this.props.onDragStop(layout, oldDragItem, l, null, e, node);
 
     // Set state
-    const newLayout = compact(layout, this.compactType(), cols);
-    const {oldLayout} = this.state;
-    this.setState({
-      activeDrag: null,
-      layout: newLayout,
-      oldDragItem: null,
-      oldLayout: null,
-    });
+    if (!this.props.stateLess) {
+      const newLayout = compact(layout, this.props.verticalCompact);
+      const {oldLayout} = this.state;
+      this.setState({
+        activeDrag: null,
+        layout: newLayout,
+        oldDragItem: null,
+        oldLayout: null,
+      });
+    }
 
     this.onLayoutMaybeChanged(newLayout, oldLayout);
   }
@@ -355,15 +359,17 @@ export default class ReactGridLayout extends React.Component {
 
     this.props.onResizeStop(layout, oldResizeItem, l, null, e, node);
 
-    // Set state
-    const newLayout = compact(layout, this.compactType(), cols);
-    const {oldLayout} = this.state;
-    this.setState({
-      activeDrag: null,
-      layout: newLayout,
-      oldResizeItem: null,
-      oldLayout: null
-    });
+    if (!this.props.stateLess) {
+      // Set state
+      const newLayout = compact(layout, this.props.verticalCompact);
+      const {oldLayout} = this.state;
+      this.setState({
+        activeDrag: null,
+        layout: newLayout,
+        oldResizeItem: null,
+        oldLayout: null
+      });
+    }
 
     this.onLayoutMaybeChanged(newLayout, oldLayout);
   }

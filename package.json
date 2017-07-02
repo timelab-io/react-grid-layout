@@ -1,6 +1,6 @@
 {
   "name": "@timelab/react-grid-layout",
-  "version": "0.14.6-with-data-grid-fix",
+  "version": "0.14.6-stateless",
   "description": "A draggable and resizable grid layout with responsive breakpoints, for React.",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "responsive"
   ],
   "author": "Samuel Reed <samuel.trace.reed@gmail.com> (http://strml.net/)",
+  "contributors": [{"name":"Anton Tokmakov", "email": "calmburst@gmail.com"}],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/STRML/react-grid-layout/issues"
